@@ -1,0 +1,22 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2 style="text-align: center; font-size: 2.5em; color: #333; margin-bottom: 30px;">List of Exams</h2>
+  
+  {% if exams %}
+    <div style="max-width: 800px; margin: 0 auto; background-color: #f9f9f9; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+      <ul style="list-style-type: none; padding: 0;">
+        {% for exam in exams %}
+          <li style="margin-bottom: 20px; padding: 15px; background-color: #fff; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); transition: transform 0.2s ease;">
+            <a href="{% url 'take_exam' exam.id %}" style="font-size: 1.3em; color: #4CAF50; font-weight: bold; text-decoration: none; transition: color 0.3s ease;">
+              {{ exam.title }}
+            </a>
+            <p style="font-size: 1em; color: #666; margin-top: 10px;">Created on: {{ exam.created_at }}</p>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% else %}
+    <p style="text-align: center; font-size: 1.2em; color: #999;">No exams available.</p>
+  {% endif %}
+{% endblock %}

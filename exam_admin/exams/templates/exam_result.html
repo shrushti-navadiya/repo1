@@ -1,0 +1,8 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>Exam Result</h2>
+  <p>Your score: {{ score }}%</p>
+  <p>Status: {{ status|capfirst }}</p>
+  <a href="{% url 'exam_list' %}">Back to Exam List</a>
+{% endblock %}
